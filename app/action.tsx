@@ -6,6 +6,7 @@ export const submitLoginForm = async (prevState : any , form : FormData) => {
             email : form.get("email"),
             password : form.get("password")
         }
+        console.log(rawData)
         const url = process.env.LOGIN_URL  as string 
         const response = await fetch(url , {
             method : "POST",
@@ -22,7 +23,7 @@ export const submitLoginForm = async (prevState : any , form : FormData) => {
         }
     }catch(e : any){
         return {
-            message : e.message , 
+            message : "Error Occured" , 
             data : {}
         }
     }

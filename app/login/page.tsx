@@ -1,10 +1,15 @@
+"use client"
+import { useFormState } from "react-dom"
+import { submitLoginForm } from "../action"
+
 const Login = async () => {
+    const [state , formAction] = useFormState(submitLoginForm ,{message : "" , data :{}} )
     return (
         <>
             <main className="framer">
                 <h1>Login to Small Blogger</h1>
                 <p>Create contents for your audience</p>
-                <form>
+                <form action={formAction}>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="emai"
@@ -23,6 +28,7 @@ const Login = async () => {
                         aria-description="submit"
                         className="btn btn-submit btn-primary"
                     >Login</button>
+                    <p> {state.message}</p>
                 </form>
             </main>
         </>

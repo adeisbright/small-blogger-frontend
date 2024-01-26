@@ -6,7 +6,7 @@ export const submitLoginForm = async (prevState : any , form : FormData) => {
             email : form.get("email"),
             password : form.get("password")
         }
-        console.log(rawData)
+        alert(rawData.email)
         const url = process.env.LOGIN_URL  as string 
         const response = await fetch(url , {
             method : "POST",

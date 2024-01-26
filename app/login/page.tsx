@@ -1,6 +1,7 @@
 "use client"
 import { useFormState } from "react-dom"
 import { submitLoginForm } from "../action"
+import { SubmitLoginButton } from "./submit-login"
 
 const Login = async () => {
     const [state , formAction] = useFormState(submitLoginForm ,{message : "" , data :{}} )
@@ -22,12 +23,7 @@ const Login = async () => {
                         id="password"
                         className="input input-border-faint"
                     />
-                    <button 
-                        type="submit"
-                        aria-disabled={false}
-                        aria-description="submit"
-                        className="btn btn-submit btn-primary"
-                    >Login</button>
+                   <SubmitLoginButton/>
                     <p> {state.message}</p>
                 </form>
             </main>
